@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block css_file %}
+
+<link href="{% static 'assets/css/team.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/login.css' %}" rel="stylesheet">
+
+{% endblock css_file %}
+
+{% block main__content %}
+
+<main id="main">
+
+
+    <section class="login__container">
+        <div class="team-section-header">
+            <h2>Login</h2>
+            <p>Login to your account.</p>
+        </div>
+
+        <div class="column">
+            <div class="illustration">
+                <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png"
+                    alt="Signup" />
+            </div>
+            <form class="signup form" method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="textInput">
+                    <!-- <input type="text" placeholder="Enter email" /> -->
+                    {{form.username}}
+                    <span class="material-icons-outlined"> alternate_email </span>
+                </div>
+
+                <div class="textInput">
+                    <!-- <input type="password" placeholder="Enter password" /> -->
+                    {{form.password}}
+                    <span class="material-icons-outlined"> lock_clock </span>
+                </div>
+                <button class="button" type="submit">
+                    <span>Login</span>
+                </button>
+
+                {{form.errors}}
+                <div class="info">
+                    Don't have an account? <a href="signup.html">Signup</a> instead.
+                </div>
+            </form>
+        </div>
+
+    </section><!-- End login Section -->
+
+    <!-- 
+  <section class="">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit">
+    </form>
+  </section> -->
+</main>
+<!-- End #main -->
+
+{% endblock main__content %}

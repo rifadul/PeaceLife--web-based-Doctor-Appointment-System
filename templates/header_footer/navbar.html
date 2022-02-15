@@ -1,0 +1,60 @@
+{% load static %}
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+        <!-- {% url 'home' %} -->
+        <h1 class="logo me-auto"><a href="{% url 'home' %}">Peace<span style="color:rgb(53, 50, 50)">Life</span> </a>
+        </h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul class="me-auto">
+                <li><a class="nav-link scrollto " href="{% url 'home' %}">Home</a></li>
+
+                {% if request.user.is_authenticated %}
+                <li><a class="nav-link scrollto" href="{% url 'messenger' request.user.username %}">Chat With Doctor</a>
+                </li>
+                {% endif %}
+
+
+                <li><a class="nav-link scrollto" href="{% url 'teamMember' %}">Team</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a class="nav-link scrollto" href="{% url 'subscription' %}">Subscription</a></li>
+                {% endif %}
+                <!-- <li><a class="nav-link scrollto" href="#departments">Departments</a></li> -->
+                <li><a class="nav-link scrollto" href="{% url 'doctors' %}">Doctors</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blogs</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'contact'%}">Contact</a></li>
+
+
+                {% if not request.user.is_authenticated %}
+                <li class="nav-icon"><a class="nav-link scrollto" href="{% url 'login'%}">
+                        <i class="bi bi-box-arrow-in-right"></i>
+                        <span>Login</span>
+                    </a></li>
+
+                <li class="nav-icon"><a class="nav-link scrollto" href="{% url 'signup'%}">
+                        <i class="bi bi-card-list"></i>
+                        <span>Register</span>
+                    </a></li>
+                {% endif %}
+
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+
+        <!-- Start Profile Nav -->
+
+        {% if request.user.is_authenticated %}
+        {% include 'header_footer/profile_dropdown_nav.html' %}
+        {% endif %}
+
+        <!-- End Profile Nav -->
+
+
+
+    </div>
+</header><!-- End Header -->

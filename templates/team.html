@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Team Members
+{% endblock title %}
+
+{% block css_file %}
+<link href="{% static 'assets/css/team.css' %}" rel="stylesheet">
+{% endblock css_file %}
+
+{% block main__content %}
+
+<main id="main" style="margin-top:6.5rem">
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+
+        <div class="container" data-aos="fade-up">
+
+            <div class="team-section-header">
+                <h2>Team</h2>
+                <p>Our hard working team</p>
+            </div>
+
+            <div class="row gy-4">
+
+                {% for member in members %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{{member.image.url}}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>{{member.name}}</h4>
+                            <span>{{member.designation}}</span>
+                            <p>{{member.about}}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section><!-- End Team Section -->
+
+
+</main><!-- End #main -->
+{% endblock main__content %}

@@ -1,0 +1,374 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block css_file %}
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+{% endblock css_file %}
+
+{% block main__content %}
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+  <div class="container ">
+    <h1>Welcome to PeaceLife</h1>
+    <h2>We have professionals to help you lead a happy life.</h2>
+    <h3>Peacelife website facilitates users with different professionals in mental health sector, you can interact with
+      them. We have multiple features that can help you solve your mental health issues and make you easier and happier.
+    </h3>
+    <a href="{% url 'doctors' %}" class="btn-get-started scrollto">Get Started</a>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+  <!-- ======= Why Us Section ======= -->
+  <section id="why-us" class="why-us">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="content">
+            <h3>Why Choose PaceLife?</h3>
+            <p>
+              PeaceLife is a platform where you can get complete mental health support. We have professionals who is
+              waiting for you to listen to your problems
+            </p>
+            <div class="text-center">
+              <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 d-flex align-items-stretch">
+          <div class="icon-boxes d-flex flex-column justify-content-center">
+            <div class="row">
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Book Appointment </h4>
+                  <p>You can book appointment of your desired professionals online and offline. They are always there to
+                    support you.</p>
+                </div>
+              </div>
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Get Subscriptions </h4>
+                  <p>You can buy subscriptions Where you’ll get the feature to connect with professionals for
+                    counselling on schedule basis on online.</p>
+                </div>
+              </div>
+              <div class="col-xl-4 d-flex align-items-stretch">
+                <div class="icon-box mt-4 mt-xl-0">
+                  <i class="bx bx-chat"></i>
+                  <h4>Chat with professionals</h4>
+                  <p>Now you can chat with our professionals, counselling and sharing your problem is now more easy.</p>
+                </div>
+              </div>
+            </div>
+          </div><!-- End .content-->
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Why Us Section -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
+          <!-- <img src="https://cdn.pixabay.com/photo/2020/08/03/09/39/medical-5459631_960_720.png" class="glightbox play-btn mb-4"></img> -->
+        </div>
+
+        <div
+          class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+          <h3>Things that make us apart from other telemedicine platforms</h3>
+          <p>PeaceLife website is a web- based telemedicine service to mental health support. It offers mental health
+            professionals with highly experience background. We are offering online and offline appointment, automated
+            chatbot, online counselling through chatting system in the website that provides text and video chatting.
+          </p>
+
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-fingerprint"></i></div>
+            <h4 class="title"><a href="">Motivation</a></h4>
+            <p class="description">To make things easier for the people who needs the most of this service but they
+              can't always get the chance to going outside to the doctor.</p>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-gift"></i></div>
+            <h4 class="title"><a href="">Objectives </a></h4>
+            <p class="description">Our purpose is to deliver the best support to the people so that they can make the
+              best use of it. And we are working on the user experience of our website where they can make their
+              appointment according to their needs.</p>
+          </div>
+
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-atom"></i></div>
+            <h4 class="title"><a href="">Scopes </a></h4>
+            <p class="description">Our website has different subscription package for users & by buying it they can use
+              automated chatbot features. People can read & upload important blogs through our website</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+
+  <!-- ======= Counts Section ======= -->
+  <section id="counts" class="counts">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6">
+          <div class="count-box">
+            <i class="fas fa-user-md"></i>
+            <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Doctors</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+          <div class="count-box">
+            <i class="far fa-hospital"></i>
+            <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Departments</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="fas fa-flask"></i>
+            <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Research Labs</p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <div class="count-box">
+            <i class="fas fa-award"></i>
+            <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
+              class="purecounter"></span>
+            <p>Awards</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Counts Section -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Services</h2>
+<p>
+  Our platform aims to provide a mental health telemedicine solution through the high-quality mental health professionals.
+</p>
+      </div>
+
+      <div class="row">
+        {% for service in services %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+          <div class="icon-box w-100">
+            <div class="icon"><i class="{{service.icon_class_name}}"></i></div>
+            <h4><a href="">{{service.service_name}}</a></h4>
+            <p>{{service.about_service}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+
+  <!-- ======= Departments Section ======= -->
+  <section id="departments" class="departments">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Departments</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <ul class="nav nav-tabs flex-column">
+            <!-- fro loop start -->
+            {% for department in departments %}
+            <li class="nav-item">
+              <a class="nav-link {% if department.id == 1 %} active show {% endif %}" data-bs-toggle="tab"
+                href="#tab-{{department.id}}">{{department.name}}</a>
+            </li>
+            {% endfor %}
+
+            <!-- for loop end -->
+          </ul>
+        </div>
+        <div class="col-lg-9 mt-4 mt-lg-0">
+          <div class="tab-content">
+            <!-- for loop start -->
+            {% for department in departments %}
+            <div class="tab-pane {% if department.id == 1 %} active show {% endif %}" id="tab-{{department.id}}">
+              <div class="row">
+                <div class="col-lg-8 details order-2 order-lg-1">
+                  <h3>{{department.name}}</h3>
+                  <p class="fst-italic">{{department.about|safe}}</p>
+                </div>
+                <div class="col-lg-4 text-center order-1 order-lg-2">
+                  <img src="{{ department.image.url }}" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+            <!-- for loop end -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Departments Section -->
+
+
+
+  <!-- ======= Frequently Asked Questions Section ======= -->
+  <section id="faq" class="faq section-bg">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <ul>
+          {% for question in questions %}
+          <li data-aos="fade-up">
+            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+              data-bs-target="#faq-list-{{question.id}}">{{question.question}}<i
+                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-{{question.id}}" class="collapse {% if question.id == 1 %} show {% endif %}"
+              data-bs-parent=".faq-list">
+              <p>
+                {{question.answer}}
+              </p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </section><!-- End Frequently Asked Questions Section -->
+
+  <!-- ======= Testimonials Section ======= -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+
+      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+        <div class="swiper-wrapper">
+
+          {% for data in testimonial_data %}
+          <div class="swiper-slide">
+            <div class="testimonial-wrap">
+              <div class="testimonial-item">
+                <img src="{{data.image.url}}" class="testimonial-img" alt="">
+                <h3>{{data.name}}</h3>
+                <h4>{{data.designation}}</h4>
+                <p>
+                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>{{data.content}}<i
+                    class="bx bxs-quote-alt-right quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+          </div><!-- End testimonial item -->
+          {% endfor %}
+
+
+
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </section><!-- End Testimonials Section -->
+
+  <!-- ======= Recent Blog Posts Section ======= -->
+  <section id="recent-blog-posts" class="recent-blog-posts">
+
+    <div class="container" data-aos="fade-up">
+
+      <header class="section-title">
+        <h2>Blog</h2>
+        <p>Recent posts form our Blog</p>
+      </header>
+
+      <div class="row">
+
+        {% for post in posts %}
+        <div class="col-lg-4">
+          <div class="post-box">
+            <div class="post-img"><img src="{{ post.image.url }}" class="img-fluid" alt=""></div>
+            <span class="post-date">{{post.create_at}}</span>
+            <h3 class="post-title">{{post.title}}</h3>
+            <a href="{% url 'blog_details' slug=post.slug %}" class="readmore stretched-link mt-auto"><span>Read
+                More</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+
+    </div>
+
+  </section><!-- End Recent Blog Posts Section -->
+
+
+  <!-- ======= Gallery Section ======= -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Gallery</h2>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row no-gutters">
+        {% for image in gallery_images %}
+        <div class="col-lg-3 col-md-4">
+          <div class="gallery-item">
+            <a href="{{image.gallery_image.url}}" class="galelry-lightbox">
+              <img src="{{image.gallery_image.url}}" alt="" class="img-fluid">
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Gallery Section -->
+
+
+</main><!-- End #main -->
+
+{% endblock main__content %}
+
+{% block js_file %}
+
+{% endblock js_file %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Doctors
+{% endblock title %}
+
+{% block css_file %}
+<link href="{% static 'assets/css/doctor.css' %}" rel="stylesheet">
+{% endblock css_file %}
+
+{% block main__content %}
+
+<main id="main" style="margin-top:8.5rem" class="pb-5">
+    <!-- ======= Doctors Section ======= -->
+    <section id="recent-blog-posts" class="recent-blog-posts">
+
+        <div class="container-fluid" data-aos="fade-up">
+
+            <header class="section-title">
+                <h2>Doctors</h2>
+                <!-- <p>Recent posts form our Blog</p> -->
+            </header>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    {% include 'doctor/doctor_sidebar.html' %}
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        {% if doctors %}
+                        {% for doctor in doctors %}
+                        <div class="col-lg-3 text-center">
+                            <div class="post-box">
+                                <div class="post-img"><img src="{{doctor.image.url}}" class="img-fluid" alt=""></div>
+                                <div class="card-info">
+                                    <span class="post-date">{{doctor.designation}}</span>
+                                    <h3 class="post-title"><a
+                                            href="{%url 'doctor_details' slug=doctor.slug %}">{{doctor.full_name}}</a>
+                                    </h3>
+                                </div>
+                                <!-- <a href="blog-singe.html" class="readmore stretched-link mx-auto"><span>See Details</span><i
+                                        class="bi bi-arrow-right"></i></a> -->
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        {% else %}
+                        <div class="alert alert-primary" role="alert">
+                            No Doctor Found!
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </div>
+
+    </section><!-- End Doctors Section -->
+
+</main><!-- End #main -->
+
+{% endblock main__content %}

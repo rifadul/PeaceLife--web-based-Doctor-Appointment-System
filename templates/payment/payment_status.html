@@ -1,0 +1,41 @@
+{% extends 'payment/PayBase.html' %}
+{% load static %}
+
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block css_file %}
+<link href="{% static 'assets/css/contact.css' %}" rel="stylesheet">
+{% endblock css_file %}
+
+{% block main__content %}
+
+<main id="main" style="margin-top:10.5rem">
+    <section>
+        <div class="container">
+            <div class="px-4 py-5 my-5 text-center">
+
+                {% if success %}
+
+                <img src="https://image.freepik.com/free-vector/successful-purchase-concept-illustration_114360-1003.jpg"
+                    class="img-thumbnail" alt="...">
+                <div class="alert alert-success" role="alert">
+                    <h4>Congratulations your payment completed successfully <a href="{% url 'home' %}">Back to Home</a>
+                    </h4>
+                </div>
+                {% else %}
+                <img src="https://image.freepik.com/free-vector/payment-error-info-message-smartphone-customer-cross-marks-failure-vector-illustration_106788-3027.jpg"
+                    class="img-thumbnail" alt="...">
+                <div class="alert alert-danger" role="alert">
+                    <h4>Payment unsuccessfully! Please try again..<a href="{% url 'home' %}">Back to Home</a></h4>
+
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+</main><!-- End #main -->
+
+{% endblock main__content %}

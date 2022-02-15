@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Appointment Schedule
+{% endblock title %}
+
+{% block css_file %}
+<link href="{% static 'assets/css/dashboard.css' %}" rel="stylesheet">
+<link href="{% static 'assets/dist/bootstrap-clockpicker.css' %}" rel="stylesheet">
+
+{% endblock css_file %}
+
+{% block main__content %}
+
+<!-- ======= Sidebar ======= -->
+
+{% include 'dashboard/sitebar.html' %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Appointment Schedule's</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">Tables</li>
+                <li class="breadcrumb-item active">Data</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-10 col-md-11 col-sm-12 mx-auto">
+
+                {% if doctor_schedule %}
+
+
+
+                <div class="card">
+                    <div class="card-body p-5">
+                        <h2 class="card-title" style="font-size: 22px!important;">Schedule</h2>
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Day</th>
+                                    <th scope="col">Starting Time</th>
+                                    <th scope="col">Ending Time</th>
+                                    <th scope="col">Start Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for schedule in doctor_schedule %}
+                                <tr>
+                                    <th scope="row">{{ forloop.counter }}</th>
+                                    <td>{{schedule.day}}</td>
+                                    <td>{{schedule.start_time}}</td>
+                                    <td>{{schedule.end_time}}</td>
+                                    <td>{{schedule.create_at}}</td>
+                                    <td>
+                                        {% include 'doctor/update_schedule.html' %}
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+
+
+                <!-- form card -->
+                <div class="card">
+                    <div class="card-body p-5">
+                        <h2 class="card-title" style="font-size: 22px!important;">Add Your New Schedule</h2>
+                        <div class="msg my-3">
+                            {% if messages %}
+                            {% for message in messages %}
+                            <div {% if message.tags %} class="alert alert-{{message.tags}} alert-dismissible fade show"
+                                role="alert" {% endif %}>
+                                <strong>{{message}}</strong>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                                </button>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        <!-- Profile Edit Form -->
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% for form in form %}
+                            <div class="row mb-3 clockpicker">
+                                <label for="{{form.auto_id}}"
+                                    class="col-md-4 col-lg-3 col-form-label">{{form.label}}</label>
+                                <div class="col-md-8 col-lg-9">
+                                    {{ form }}
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <!-- <div class="row mb-3">
+                                <div class="input-group clockpicker pt-5">
+                                    <label for="day" class="col-md-4 col-lg-3 col-form-label">{{form.day.label}}</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        {{form.day}}
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3 clockpicker">
+                                <div class="input-group clockpicker pt-5">
+                                    <label for="{{form.auto_id}}"
+                                        class="col-md-4 col-lg-3 col-form-label">{{form.start_time.label}}</label>
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="time" class="form-control" name="start_time">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row mb-3 clockpicker">
+                                <div class="input-group clockpicker pt-5">
+                                    <label for="{{form.auto_id}}"
+                                        class="col-md-4 col-lg-3 col-form-label">{{form.end_time.label}}</label>
+
+
+                                    <div class="col-md-8 col-lg-9">
+                                        <input type="time" class="form-control" name="end_time">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
+
+{% endblock main__content %}
+
+{% block js_file %}
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/dist/bootstrap-clockpicker.js' %}"></script>
+
+<script type="text/javascript">
+    $('.clockpicker').clockpicker({
+        timeFormat: 'h:mm: p',
+        placement: 'top',
+        align: 'left',
+        autoclose: true,
+    });
+
+</script>
+
+<!-- <script type="text/javascript">
+    $('.id_start_time').clockpicker({
+        timeFormat: 'h:mm: p',
+        placement: 'top',
+        align: 'left',
+        autoclose: true,
+        altFormate: "F j, Y",
+    });
+</script>
+<script type="text/javascript">
+    $('.id_end_time').clockpicker({
+        timeFormat: 'h:mm: p',
+        placement: 'top',
+        align: 'left',
+        autoclose: true,
+        altFormate: "F j, Y",
+    });
+</script> -->
+{% endblock js_file %}

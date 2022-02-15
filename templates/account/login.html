@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block css_file %}
+
+<link href="{% static 'assets/css/team.css' %}" rel="stylesheet">
+<link href="{% static 'assets/css/login.css' %}" rel="stylesheet">
+
+{% endblock css_file %}
+
+{% block main__content %}
+
+<main id="main">
+
+
+  <section class="login__container">
+    <div class="team-section-header">
+      <h2>Login</h2>
+      <p>Login to your account.</p>
+    </div>
+
+
+    <div class="column">
+      <div class="illustration">
+        <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" alt="Signup" />
+      </div>
+      <form class="signup form" method="POST" action="{% url 'login' %}">
+        {% if messages %}
+        <div>
+          {% for message in messages %}
+          <div {% if message.tags %} class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" {% endif %}>
+            <strong>{{message}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        <div class="textInput">
+          <!-- <input type="text" placeholder="Enter email" /> -->
+          {{form.email}}
+          <span class="material-icons-outlined"> alternate_email </span>
+        </div>
+
+        <div class="textInput">
+          <!-- <input type="password" placeholder="Enter password" /> -->
+          {{form.password}}
+          <span class="material-icons-outlined"> lock_clock </span>
+        </div>
+        <button class="button" type="submit">
+          <span>Login</span>
+        </button>
+
+        {{form.errors}}
+        <div class="info">
+          Don't have an account? <a href="{% url 'signup' %}">Signup</a> instead.
+        </div>
+      </form>
+    </div>
+
+  </section><!-- End login Section -->
+</main>
+<!-- End #main -->
+
+{% endblock main__content %}

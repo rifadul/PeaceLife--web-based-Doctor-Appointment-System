@@ -1,0 +1,142 @@
+<h5 class="card-title">About</h5>
+<p class="small fst-italic">{{doctor.about|safe}}</p>
+
+<h5 class="card-title">Profile Details</h5>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+    <div class="col-lg-9 col-md-8">{{doctor.full_name}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Department</div>
+    <div class="col-lg-9 col-md-8">{{doctor.department}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Education</div>
+    <div class="col-lg-9 col-md-8">{{doctor.education|safe}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Experience</div>
+    <div class="col-lg-9 col-md-8">{{doctor.experience|safe}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Consulting fee:</div>
+    <div class="col-lg-9 col-md-8">{{doctor.consulting_fee}} TK</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Phone</div>
+    <div class="col-lg-9 col-md-8">(+88) {{doctor.doctor.phone}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Email</div>
+    <div class="col-lg-9 col-md-8">{{doctor.doctor.email}}</div>
+</div>
+
+<h5 class="card-title">Doctor Schedule</h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Day</th>
+            <th scope="col">Counseling Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for schedule in doctor_schedule %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{schedule.day}}</td>
+            <td>{{schedule.start_time}} to {{schedule.end_time}}</td>
+        </tr>
+        {% endfor %}
+
+
+
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">Full Name</div>
+    <div class="col-lg-9 col-md-8">{{doctor.full_name}}</div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">User Type</div>
+    <div class="col-lg-9 col-md-8">{{request.user.user_type}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Country</div>
+    <div class="col-lg-9 col-md-8">Bangladesh</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Country</div>
+    <div class="col-lg-9 col-md-8">Bangladesh</div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">User Type</div>
+    <div class="col-lg-9 col-md-8">{{request.user.user_type}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Country</div>
+    <div class="col-lg-9 col-md-8">Bangladesh</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Country</div>
+    <div class="col-lg-9 col-md-8">Bangladesh</div>
+</div>
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">User Type</div>
+    <div class="col-lg-9 col-md-8">{{request.user.user_type}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Country</div>
+    <div class="col-lg-9 col-md-8">Bangladesh</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Country</div>
+    <div class="col-lg-9 col-md-8">Bangladesh</div>
+</div> -->
+
+<!-- <div class="row">
+                                    <div class="col-lg-3 col-md-4 label">Address</div>
+                                    <div class="col-lg-9 col-md-8">A108 Adam Street, New York, NY 535022</div>
+                                </div> -->
+
+<!-- <div class="row">
+    <div class="col-lg-3 col-md-4 label">Phone</div>
+    <div class="col-lg-9 col-md-8">(+88) {{request.user.phone}}</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">Email</div>
+    <div class="col-lg-9 col-md-8">{{request.user.email}}</div>
+</div> -->

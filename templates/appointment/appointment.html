@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Appointment
+{% endblock title %}
+
+{% block css_file %}
+<link href="{% static 'assets/css/appointment.css' %}" rel="stylesheet">
+{% endblock css_file %}
+
+{% block main__content %}
+
+<main id="main" class="pb-5" style="margin-top:10.5rem">
+
+    <!-- ======= Appointment Section ======= -->
+    <section id="appointment" class="appointment section-bg">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Make an Appointment</h2>
+
+            </div>
+
+            <form action="" method="post" role="form" class="appointment__form">
+                {% csrf_token %}
+                <div class="row">
+                    {% for form in form %}
+                    <div class="col-md-4 form-group my-2">
+                        {{form.label}}
+                        {{form}}
+                        <div class="validate"></div>
+                    </div>
+                    {% endfor %}
+
+                    <!-- 
+                    <div class="col-md-4 form-group">
+                        {{form.patient_name.label}}
+                        {{form.patient_name}}
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        {{form.age.label}}
+                        {{form.age}}
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        {{form.gender.label}}
+                        {{form.gender}}
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        {{form.email.label}}
+                        {{form.email}}
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        {{form.mobile.label}}
+                        {{form.mobile}}
+                        <div class="validate"></div>
+                    </div>
+
+                    <div class="col-md-4 form-group">
+                        {{form.appointment_date.label}}
+                        {{form.appointment_date}}
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group">
+                        {{form.appointment_type.label}}
+                        {{form.appointment_type}}
+                        <div class="validate"></div>
+                    </div>
+                </div> -->
+
+
+                    <!-- <div class="row">
+                    <div class="col-md-4 form-group mt-3">
+                        {{form.gender.label}}
+                        {{form.gender}}
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group mt-3">
+                        {{form.appointment_date.label}}
+                        {{form.appointment_date}}
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group mt-3">
+                        {{form.appointment_type.label}}
+                        {{form.appointment_type}}
+                        <div class="validate"></div>
+                    </div>
+
+                    <div class="col-md-4 form-group mt-3">
+                        <select name="doctor" id="doctor" class="form-select">
+                            <option value="">Select Doctor</option>
+                            <option value="Doctor 1">Doctor 1</option>
+                            <option value="Doctor 2">Doctor 2</option>
+                            <option value="Doctor 3">Doctor 3</option>
+                        </select>
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-4 form-group mt-3">
+                        {{form.gender.label}}
+                        <div class="form-check form-check-inline">
+                            {{form.gender}}
+                            <label class="form-check-label" for="inlineRadio1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                value="option2">
+                            <label class="form-check-label" for="inlineRadio2">2</label>
+                        </div>
+                        <div class="validate"></div>
+                    </div>
+                </div> -->
+
+                    <!-- <div class="form-group mt-3">
+                    {{form.problem_brief.label}}
+                    {{form.problem_brief}}
+                </div> -->
+                    <div class="mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Make an Appointment</button></div>
+            </form>
+
+        </div>
+    </section><!-- End Appointment Section -->
+
+</main><!-- End #main -->
+{% endblock main__content %}

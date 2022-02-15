@@ -1,0 +1,28 @@
+{% load static %}
+<div class="sidebar">
+
+    <h3 class="sidebar-title">Search</h3>
+    <div class="sidebar-item search-form">
+        <form action="{% url 'doctors' %}" method="GET">
+            <input type="text" name='search'>
+            <button type="submit"><i class="bi bi-search"></i></button>
+        </form>
+    </div><!-- End sidebar search formn-->
+
+    <h3 class="sidebar-title">Departments</h3>
+    <div class="sidebar-item categories">
+        <ul>
+
+            <li>
+                <a href="{%url 'doctors' %}">All Departments</a>
+            </li>
+            {% for department in departments %}
+            <li>
+                <a href="{%url 'department' department.id %}">{{department.name}}</a>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div><!-- End sidebar categories-->
+
+</div><!-- End sidebar -->

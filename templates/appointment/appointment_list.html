@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Appointment List
+{% endblock title %}
+
+{% block css_file %}
+<link href="{% static 'assets/css/dashboard.css' %}" rel="stylesheet">
+{% endblock css_file %}
+
+{% block main__content %}
+
+<!-- ======= Sidebar ======= -->
+
+{% include 'dashboard/sitebar.html' %}
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Data Tables</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">User</li>
+        <li class="breadcrumb-item active">Appointment List</li>
+      </ol>
+    </nav>
+    {% include 'dashboard/dashboard_toggler.html' %}
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Appointment</h5>
+
+            <!-- Table with stripped rows -->
+            <table class="table datatable">
+
+              {%if request.user.user_type == 'Patient' %}
+              <thead>
+                <tr>
+                  <th scope="col">Patient Name</th>
+                  <th scope="col">Doctor Name</th>
+                  <th scope="col">Comfirm Time</th>
+                  <th scope="col">Comfirm Date</th>
+                  <th scope="col">Payment status</th>
+                  <th scope="col">Stutas</th>
+                  <th scope="col">Crate at</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for list in appointment_list %}
+                <tr>
+                  <td>{{list.patient_name}}</td>
+                  <td>{{list.doctor}}</td>
+                  <td class="text-success font-weight-bold">
+                    {{list.appointment_time}}
+                  </td>
+                  <td class="text-success font-weight-bold">
+                    {{list.appointment_date}}
+                  </td>
+                  <td class="font-weight-bold">
+                    {{list.pay_status}}
+                  </td>
+                  <td>
+                    <div class="text-info font-weight-bold" role="alert">
+                      {{list.confirmation_status}}
+                    </div>
+                  </td>
+                  <td>{{list.create_at}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              {% endif %}
+
+
+              {% if request.user.user_type == 'Doctor' %}
+              <thead>
+                <tr>
+                  <th scope="col">Patient Name</th>
+                  <th scope="col">Appointment Time</th>
+                  <th scope="col">Appointment Date</th>
+                  <th scope="col">Payment status</th>
+                  <th scope="col">Appointment Stutas</th>
+                  <th scope="col">Confirmation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for list in appointment_list %}
+                <tr>
+
+                  <td>{{list.patient_name}}</td>
+                  <td>{{list.appointment_time}}</td>
+                  <td>{{list.appointment_date}}</td>
+                  <td class="text-success font-weight-bold">{{list.pay_status}}</td>
+                  <td>{{list.confirmation_status}}</td>
+                  <td><a href="{% url 'confirmation' slug=list.slug %}">Confirmation</a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+              {% endif %}
+
+            </table>
+            <!-- End Table with stripped rows -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
+{% endblock main__content %}

@@ -1,0 +1,76 @@
+<!-- Button trigger modal -->
+<button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+    Update
+</button>
+
+
+<!-- The Modal -->
+<div class="modal fade-in" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Update Schedule</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form method="POST" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    {% for form in form %}
+                    <div class="row mb-3 clockpicker">
+                        <label for="{{form.auto_id}}" class="col-md-4 col-lg-3 col-form-label">{{form.label}}</label>
+                        <div class="col-md-8 col-lg-9">
+                            {{ form }}
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <!--                 
+                    <div class="row mb-3">
+                        <div class="input-group clockpicker pt-5">
+                            <label for="day" class="col-md-4 col-lg-3 col-form-label">{{form.day.label}}</label>
+                            <div class="col-md-8 col-lg-9">
+                                {{form.day}}
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row mb-3 clockpicker">
+                        <div class="input-group clockpicker pt-5">
+                            <label for="{{form.auto_id}}"
+                                class="col-md-4 col-lg-3 col-form-label">{{form.start_time.label}}</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input type="time" class="form-control" name="start_time">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row mb-3 clockpicker">
+                        <div class="input-group clockpicker pt-5">
+                            <label for="{{form.auto_id}}"
+                                class="col-md-4 col-lg-3 col-form-label">{{form.end_time.label}}</label>
+
+
+                            <div class="col-md-8 col-lg-9">
+                                <input type="time" class="form-control" name="end_time">
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
